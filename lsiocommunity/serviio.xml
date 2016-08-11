@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+<Beta>False</Beta>
+<Category>MediaServer:Video MediaServer:Music</Category>
+<Date>2016-08-11</Date>
+<Name>serviio</Name>
+  <Changes>[center][img width='300px' src='https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
+ 
+[center][font size=4]Serviio Change Log[/font][/center]
+[font size=4]11-08-2016[/font]
+- Rebase to alpine linux, move to lsiocommunity repo.
+[font size=4]21-01-2016[/font]
+- Bump to 1.6, built in webui.
+[font size=4]06-11-2015[/font]
+- Beta Release
+</Changes>
+  <Support>http://lime-technology.com/forum/index.php?topic=44607.0</Support>
+  <Description>Serviio is a free media server. It allows you to stream your media files (music, video or images) to renderer devices (e.g. a TV set, Bluray player, games console or mobile phone) on your connected home network.
+  [br][br]
+  [b][u][span style=\'color: #E80000;\']Configuration[/span][/u][/b][br]
+  [b]/config[/b] Where serviio should store settings, logs and configuration[br]
+  [b]/movies[/b] Path(s) to your media folders, add more as necessary, eg for tv shows and music etc.[br]
+  [b]/tmp[/b] Transcode folder[br]
+  </Description>
+  <Project>http://serviio.org/</Project>
+  <Overview>Serviio is a free media server. It allows you to stream your media files (music, video or images) to renderer devices (e.g. a TV set, Bluray player, games console or mobile phone) on your connected home network.</Overview>
+  <Registry>https://hub.docker.com/r/lsiocommunity/serviio/</Registry>
+  <Repository>lsiocommunity/serviio</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Environment>
+    <Variable>
+      <Name>PGID</Name>
+      <Value>100</Value>
+    </Variable>
+    <Variable>
+      <Name>PUID</Name>
+      <Value>99</Value>
+    </Variable>
+  </Environment>
+  <Networking>
+    <Mode>host</Mode>
+    <Publish>
+      <Port>
+        <HostPort>23423</HostPort>
+        <ContainerPort>23423</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8895</HostPort>
+        <ContainerPort>8895</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>1900</HostPort>
+        <ContainerPort>1900</ContainerPort>
+        <Protocol>udp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>23424</HostPort>
+        <ContainerPort>23424</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/movies</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/tmp</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/serviio-icon.png</Icon>
+  <WebUI>http://[IP]:[PORT:23423]/console</WebUI>
+<DonateText>Donations</DonateText>
+<DonateLink>https://www.linuxserver.io/index.php/donations/</DonateLink>
+<DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+<BaseImage>lsiobase/alpine</BaseImage>
+</Container>
+
